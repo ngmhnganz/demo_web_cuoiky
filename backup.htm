@@ -1,0 +1,802 @@
+<!-- 
+      c  Mobile: width <740px
+      m  Tablet: width >= 740px and width <1024px
+      l  PC: width >= 1024px 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/font/icons-1.5.0/font/bootstrap-icons.css"/>
+    <title>Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="test.js"></script>
+</head>      
+<body>
+    <!-- !lớp overlay đen -->
+     <div class="grid wide container">
+        <div class="row">
+            <div class="col c-12 l-12 m-12">
+                <div class="nav-overlay"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- !side-nav cho tablet và mobiel -->
+   <div class="sidenav" id="sidenav">
+       <div class="sidenav-container">
+            <div class="grid">
+                <div class="row no-gutters">
+                    <div class="col c-6" id="sidenav-cate-shop" >
+                        <div class="sidenav-cate" style="border-right: 0.5px solid rgb(201, 201, 201);" >
+                            <button onclick="showSidenavShop()">
+                                SHOP
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col c-6"  id="sidenav-cate-recipe">
+                        <div class="sidenav-cate">
+                            <button onclick="showSidenavRecipe()">
+                                RECIPE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-shop-nguyenlieu">
+                        <div class="sidenav-shop">
+                            <p>
+                                NGUYÊN LIỆU
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-shop-dungcu">
+                        <div class="sidenav-shop">
+                            <p>
+                                DỤNG CỤ
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-shop-chebiensan">
+                        <div class="sidenav-shop">
+                            <p>
+                                CHẾ BIẾN SẴN
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-recipe-bot">
+                        <div class="sidenav-recipe">
+                            <p>
+                                BỘT
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-recipe-nuoc">
+                        <div class="sidenav-recipe">
+                            <p>
+                                NƯỚC
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12" id="sidenav-recipe-aibiet">
+                        <div class="sidenav-recipe">
+                            <p>
+                                AIBIET
+                            </p>
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col c-12">
+                        <div class="sidenav-about">
+                            <p>
+                                ABOUT US
+                            </p>
+                            <i class="bi-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+      
+       <div class="sidenav-x" onclick="closeSidenav()">
+           <div class="sidenav-x-btn" onclick="closeSidenav()">
+                <i class="bi-x-lg sidenav-x-icon"></i>
+           </div>
+       </div>
+   </div>
+
+    <div id="nav-mobile-overlay"></div>
+
+    <!-- !header -->     
+    <div id="header">
+    <div class="grid wide container">
+        <div class="row">
+            <!-- * nav pc tablet -->
+            <div class="col l-4 pc-nav">         
+                <div class="pc-nav-item-list">
+                    <!-- subav SHOP -->
+                    <div class="pc-nav-item">
+                        <a href="#">SHOP</a>
+                        <div class="pc-subnav-container">
+                            <input type="radio" name="shop" class="radio_btn" hidden id="rad-nguyenlieu" value="nguyenlieu" checked />
+                            <input type="radio" name="shop" class="radio_btn" hidden id="rad-dungcu" value="dungcu">
+                            <input type="radio" name="shop" class="radio_btn" hidden id="rad-chebiensan" value="chebiensan">
+                            <div class="pc-subnav-nav">
+                                <div class="pc-subnav-nav-item  pc-subnav-item-nguyen-lieu">
+                                    <label for="rad-nguyenlieu">
+                                        NGUYÊN LIỆU
+                                    </label>
+                                </div>
+                                <div class="pc-subnav-nav-item  pc-subnav-item-dung-cu">
+                                    <label for="rad-dungcu">
+                                        DỤNG CỤ
+                                    </label>
+                                </div>
+                                <div class="pc-subnav-nav-item  pc-subnav-item-che-bien-san">
+                                    <label for="rad-chebiensan">
+                                        CHẾ BIẾN SẴN
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- dung cu -->
+                            <div class="item-list-dung-cu">
+                                <!--! line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột dung cu</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!--! line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="/assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="/assets/img/nav_thumbnail/spinash.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                                    
+                            </div>
+
+                            <!-- nguyen lieu -->
+                            <div class="item-list-nguyen-lieu">       
+                                <!-- !line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột A</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- !line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/tomato.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- che bien san -->
+                            <div class="item-list-che-bien-san">
+                                <!-- !line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột chebien</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- !line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/carrot.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- subav RECIPE -->
+                    <div class="pc-nav-item">
+                        <a href="#">RECIPE</a>
+                        <div class="pc-subnav-container">
+                            <input type="radio" name="recipe" class="radio_btn" hidden id="rad-banh" value="banh" checked />
+                            <input type="radio" name="recipe" class="radio_btn" hidden id="rad-nuoc" value="nuoc">
+                            <input type="radio" name="recipe" class="radio_btn" hidden id="rad-aibiet" value="aibiet">
+                            <div class="pc-subnav-nav">
+                                <div class="pc-subnav-nav-item  nav-item-banh">
+                                    <label for="rad-banh">BÁNH</label>
+                                </div>
+                                <div class="pc-subnav-nav-item  nav-item-nuoc">
+                                    <label for="rad-nuoc">NƯỚC</label>
+                                </div>
+                                <div class="pc-subnav-nav-item  nav-item-aibiet">
+                                    <label for="rad-aibiet">AIBIET</label>
+                                </div>
+                            </div>
+                            <!-- bánh -->
+                            <div class="item-list-banh">
+                                <!-- !line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 1</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- !line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/bo.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- nước -->
+                            <div class="item-list-nuoc">
+                                <!-- !line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 1</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- !line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/chili.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ai biêt -->
+                            <div class="item-list-aibiet">
+                                <!-- !line 1 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 1</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 2</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 3</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 4</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- !line2 -->
+                                <div class="md-hd-it-list-r">
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 6</p>
+                                        </div>
+                                    </div>
+                
+                                    <div class="pc-subnav-item">
+                                        <div class="md-hd-item-img">
+                                            <img src="./assets/img/nav_thumbnail/redto.png" alt="Bot">
+                                        </div>
+                                        <div class="md-hd-item-title">
+                                            <p>Bột 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- subav ABOUT US -->
+                    <div class="pc-nav-item">
+                        <a href="#">ABOUT US</a>
+                        <div class="pc-subnav-container">
+                            <div class="pc-subnav-nav-about">
+                                <div class="pc-subnav-nav-item-about">
+                                    <a href="#">STORY</a>
+                                </div>
+                                <div class="pc-subnav-nav-item-about ">
+                                    <a href="#">BLOG</a>
+                                </div>
+                                <div class="pc-subnav-nav-item-about">
+                                    <a href="#">CONTACT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- * nav mobile -->
+            <div class="col c-4 m-4 tab-mb-nav mg-l" onclick="showSidenav()" >
+                <div class="mb-nav-icon" onclick="showSidenav()">
+                    <div class="mb-nav-icon-item">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- *logo -->
+            <div class="col l-4 m-4 c-4" style="position: relative;">              
+                <div class="header-logo">
+                    <div class="header-logo-img">  
+                    </div>
+                </div>
+            </div>
+
+            <!-- *giỏ hàng và profile icon -->
+            <div class="col l-4 m-4 c-4 mg-r">
+                <div class="header-icon">
+                    <div class="header-icon-item">
+                        <i class="profile-icon fas fa-user-circle"></i>
+                    </div>
+                    <div class="header-icon-item">
+                        <i class="cart-icon fas fa-shopping-basket"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- !banner -->
+    <section class="sec-banner">
+        <div class="grid wide container">
+            <div class="row">
+                <div class="col l-12 c-12 m-12">
+                    <div class="banner"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- !suggest -->
+    <section class="sec-suggest-product">
+        <!-- suggest secction -->
+        <div class="grid wide container">
+            <div class="row">
+                <div class="col l-4 m-4 c-6 l-o-4 m-o-4 c-o-3">
+                    <div class="suggest-title">
+                        <h3>Hôm nay ăn gì</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l-3 m-6 c-12 mg-b mg-t mg-r mg-l">
+                    <div class="v-product-card">
+                        <div class="v-product-card-img">
+                            <img src="./assets/img/suggest-product/peak-plavor-nopromo_715372_400x400.jpg" alt="product">
+                        </div>
+                        <div class="v-product-card-desc">
+                            <div class="v-product-card-name">
+                                <p>Sữa chết tiệt dài tí đi</p>
+                            </div>
+                            <div class="v-product-card-name-footer">
+                                <p class="v-product-card-price">90.000 VND</p>
+                                <i class="bi-plus-circle-fill v-product-card-buy-btn"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col l-3 m-6 c-12 mg-b mg-t mg-r mg-l">
+                    <div class="v-product-card">
+                        <div class="v-product-card-img">
+                            <img src="./assets/img/suggest-product/peak-plavor-nopromo_715372_400x400.jpg" alt="product">
+                        </div>
+                        <div class="v-product-card-desc">
+                            <div class="v-product-card-name">
+                                <p>Sữa chết tiệt dài tí đi</p>
+                            </div>
+                            <div class="v-product-card-name-footer">
+                                <p class="v-product-card-price">90.000 VND</p>
+                                <i class="bi-plus-circle-fill v-product-card-buy-btn"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l-3 m-6 c-12 mg-b mg-t mg-r mg-l">
+                    <div class="v-product-card">
+                        <div class="v-product-card-img">
+                            <img src="./assets/img/suggest-product/peak-plavor-nopromo_715372_400x400.jpg" alt="product">
+                        </div>
+                        <div class="v-product-card-desc">
+                            <div class="v-product-card-name">
+                                <p>Sữa chết tiệt dài tí đi</p>
+                            </div>
+                            <div class="v-product-card-name-footer">
+                                <p class="v-product-card-price">90.000 VND</p>
+                                <i class="bi-plus-circle-fill v-product-card-buy-btn"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l-3 m-6 c-12 mg-b mg-t mg-r mg-l">
+                    <div class="v-product-card">
+                        <div class="v-product-card-img">
+                            <img src="./assets/img/suggest-product/peak-plavor-nopromo_715372_400x400.jpg" alt="product">
+                        </div>
+                        <div class="v-product-card-desc">
+                            <div class="v-product-card-name">
+                                <p>Sữa chết tiệt dài tí đi</p>
+                            </div>
+                            <div class="v-product-card-name-footer">
+                                <p class="v-product-card-price">90.000 VND</p>
+                                <i class="bi-plus-circle-fill v-product-card-buy-btn"></i>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- suggest secction -->
+    </section>
+        
+    <section classs="sec-suggest=recipe">
+        <div class="grid wide container">
+            n 
+        </div>
+    </section>
+
+    <section class="sec-ad-app">
+        <div class="grid wide container">
+            <div class="row">
+                <div class="col l-6 c-12 m-6">
+                    <div class="ad-app-container">
+                        <div class="ad-app-title">
+                            <h1>Tải app để có thêm nhiều ưu đãi</h1>
+                        </div>
+                        <div class="app-download">
+                            <div class="app-download-img chplay-img">
+                                <img src="./assets/img/banner/google-play.png">
+                            </div>
+                            <div class="app-download-img appstore-img">
+                                <img src="./assets/img/banner/app-store.png">
+                            </div>
+                        </div>  
+                        <div class="app-download-logo">
+                            <img src="./assets/img/logo.png">
+                        </div>
+                    </div>    
+                </div>
+                <div class="col l-6 c-12 m-6">
+                    <div class="ad-app-img">
+                        <img src="./assets/img/banner/img-app-footer.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- modal-->
+    <div id="modal">
+    </div>
+</body>
+</html>
